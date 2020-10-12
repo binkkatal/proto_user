@@ -1,0 +1,11 @@
+syntax = "proto3";
+package model;
+
+option go_package = "github.com/binkkatal/proto_user/src/model";
+
+message User {
+  string name = 1;
+  int32 id = 2;  // Unique ID number for this person.
+  string email = 3;
+  string phoneNumber = 4;
+}

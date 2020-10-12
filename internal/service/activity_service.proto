@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "github.com/binkkatal/proto_user/src/service";
+
+import "internal/models/activity.proto";
+
+
+//ActivityService Definition
+service ActivityService {
+	rpc Add (model.Activity) returns (ActivityResponse) {};
+	rpc get (GetActivityRequest) returns (ActivityResponse) {};
+	rpc start (GetActivityRequest) returns (ActivityResponse) {};
+	rpc stop (GetActivityRequest) returns (ActivityResponse) {};
+	rpc isValid (GetActivityRequest) returns (BoolResult) {};
+	rpc isDone (GetActivityRequest) returns (BoolResult) {};
+}
+ 
+message ActivityResponse {
+	model.Activity activity  = 1;
+	Error error = 2;
+}
+message Error {
+	string code = 1;
+	string message = 2;
+}
+
+message GetActivityRequest {
+	int32 id = 1;
+}
+
+message BoolResult {
+	bool result = 1;
+}

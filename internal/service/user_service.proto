@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "github.com/binkkatal/proto_user/src/service";
+
+import "internal/models/user.proto";
+import "internal/service/activity_service.proto";
+
+
+// Interface exported by the server.
+service UserService {
+	rpc Add (model.User) returns (UserResponse);
+	rpc Get (GetUserRequest) returns (UserResponse);
+}
+ 
+message UserResponse {
+	model.User user  = 1;
+	service.Error error = 2;
+}
+
+message GetUserRequest {
+	int32 id = 1;
+}

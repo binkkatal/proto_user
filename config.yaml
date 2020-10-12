@@ -1,0 +1,8 @@
+host: '0.0.0.0'
+port: '3306'
+user: 'bink'
+pass: 'password'
+dbname: 'user_activity'
+maxIdleConns: 10
+maxOpenConns: 100
+connMaxLifetime: 3600
